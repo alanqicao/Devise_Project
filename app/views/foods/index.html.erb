@@ -1,2 +1,13 @@
 <h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+<h2>Welcome <%= current_user.first_name %></h2>
+<hr />
+<%= link_to "Add food", new_food_path %>
+<h3>Your food</h3>
+<ul>
+  <% @foods.each do |food| %>
+    <li>
+      <%= food.name %> - $<%= food.calorie %>
+    </li>
+  <% end %>
+</ul>
